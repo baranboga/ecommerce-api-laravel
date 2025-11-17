@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
         'api' => [
-            'driver' => 'jwt',
+            'driver' => 'jwt',  // JTW for API authentication
             'provider' => 'users',
         ],
     ],

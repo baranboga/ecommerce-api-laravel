@@ -37,6 +37,7 @@ class AuthService
             return null;
         }
 
+        //auth() global helper function'u ile mevcut kullanıcıyı alır!!
         $user = auth()->user();
 
         return [
