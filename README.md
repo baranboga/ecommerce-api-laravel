@@ -35,31 +35,25 @@ docker-compose up -d --build
 
 **Not:** `.env` dosyası projeye dahil edilmiştir ve Laravel için zorunludur. Veritabanı bağlantı bilgileri ile diğer yapılandırmalar bu dosyada tutulur.
 
-3. **Laravel application key oluşturun:**
-
-```bash
-docker-compose exec php php artisan key:generate
-```
-
-4. **Composer bağımlılıklarını yükleyin:**
+3. **Composer bağımlılıklarını yükleyin:**
 
 ```bash
 docker-compose exec php composer install
 ```
 
-5. **Veritabanı migration'larını çalıştırın:**
+4. **Veritabanı migration'larını çalıştırın:**
 
 ```bash
 docker-compose exec php php artisan migrate
 ```
 
-6. **Sample data'yı ekleyin:**
+5. **Sample data'yı ekleyin:**
 
 ```bash
 docker-compose exec php php artisan db:seed
 ```
 
-7. **Swagger dokümantasyonunu oluşturun:**
+6. **Swagger dokümantasyonunu oluşturun:**
 
 ```bash
 docker-compose exec php php artisan l5-swagger:generate
