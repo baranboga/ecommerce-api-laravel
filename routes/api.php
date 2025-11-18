@@ -7,12 +7,12 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-// Public routes
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+// Public routes with rate limiting
+Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:5,1'); // 5 dakikada 1 istek
+Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:5,1'); // 5 dakikada 1 istek
 
-// Protected routes (JWT required)
-Route::middleware('auth:api')->group(function () {
+// Protected routes (JWT required) with rate limiting
+Route::middleware(['auth:api', 'throttle:60,1'])->group(function () { // Dakikada 60 istek
     // Auth
     Route::get('/profile', [AuthController::class, 'profile']);
     Route::put('/profile', [AuthController::class, 'updateProfile']);
