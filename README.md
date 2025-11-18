@@ -11,6 +11,87 @@ PHP ve PostgreSQL kullanılarak geliştirilmiş RESTful JSON API projesi.
 -   **API Dokümantasyonu:** Swagger/OpenAPI (l5-swagger)
 -   **Containerization:** Docker & Docker Compose
 
+## Özellikler
+
+### Kimlik Doğrulama ve Yetkilendirme
+
+-   ✅ JWT (JSON Web Token) tabanlı authentication
+-   ✅ Kullanıcı kaydı ve girişi
+-   ✅ Profil görüntüleme ve güncelleme
+-   ✅ Rol tabanlı yetkilendirme (Admin/User)
+-   ✅ AdminMiddleware ile admin yetkisi kontrolü
+
+### Güvenlik
+
+-   ✅ Rate Limiting (Login/Register: 5 dakikada 1 istek, API: Dakikada 60 istek)
+-   ✅ Şifreler bcrypt ile hash'lenir
+-   ✅ SQL injection koruması (Eloquent ORM)
+-   ✅ XSS koruması
+-   ✅ Input validation ve sanitization
+
+### Ürün Yönetimi
+
+-   ✅ Ürün listeleme (filtreleme ve sayfalama)
+-   ✅ Ürün detay görüntüleme
+-   ✅ Ürün arama (isim bazlı)
+-   ✅ Fiyat aralığı filtresi
+-   ✅ Kategori bazlı filtreleme
+-   ✅ Admin: Ürün oluşturma, güncelleme ve silme
+
+### Kategori Yönetimi
+
+-   ✅ Kategori listeleme
+-   ✅ Admin: Kategori oluşturma, güncelleme ve silme
+
+### Sepet Yönetimi
+
+-   ✅ Sepeti görüntüleme
+-   ✅ Sepete ürün ekleme
+-   ✅ Sepet ürün miktarı güncelleme
+-   ✅ Sepetten ürün çıkarma
+-   ✅ Sepeti temizleme
+-   ✅ Stok kontrolü
+
+### Sipariş Yönetimi
+
+-   ✅ Sipariş oluşturma (sepetten otomatik dönüşüm)
+-   ✅ Kullanıcı siparişlerini listeleme
+-   ✅ Sipariş detay görüntüleme
+-   ✅ Toplam tutar hesaplama
+
+### API Özellikleri
+
+-   ✅ RESTful API tasarımı
+-   ✅ Tutarlı response formatı (ResponseHelper)
+-   ✅ Swagger/OpenAPI dokümantasyonu
+-   ✅ Interaktif API test arayüzü (Swagger UI)
+-   ✅ HTTP status kodları (200, 201, 400, 401, 404, 422, 500)
+-   ✅ Detaylı hata mesajları ve validasyon hataları
+
+### Mimari ve Tasarım
+
+-   ✅ Service Layer pattern
+-   ✅ Controller-Service-Model ayrımı
+-   ✅ Eloquent ORM ile veritabanı işlemleri
+-   ✅ Migration ve Seeder yapısı
+-   ✅ Middleware yapısı
+
+### Docker ve Deployment
+
+-   ✅ Docker Compose ile containerization
+-   ✅ Nginx web server
+-   ✅ PHP-FPM
+-   ✅ PostgreSQL veritabanı
+-   ✅ Adminer (Veritabanı yönetim arayüzü)
+-   ✅ Kolay kurulum ve çalıştırma
+
+### Veritabanı
+
+-   ✅ PostgreSQL 13+ desteği
+-   ✅ Migration tabanlı veritabanı yönetimi
+-   ✅ Seeder ile örnek veri yükleme
+-   ✅ İlişkisel veritabanı tasarımı
+
 ## Proje Kurulumu
 
 ### Gereksinimler
@@ -565,7 +646,3 @@ docker-compose exec php php artisan migrate:fresh --seed
 ## Lisans
 
 Bu proje case study amaçlı geliştirilmiştir.
-
-## İletişim
-
-Teknik sorular için: salih.gencer@turkticaret.net
