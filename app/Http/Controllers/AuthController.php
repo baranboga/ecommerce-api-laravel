@@ -78,8 +78,8 @@ class AuthController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *             required={"email","password"},
-     *             @OA\Property(property="email", type="string", format="email", example="test@example.com"),
-     *             @OA\Property(property="password", type="string", format="password", example="password123")
+     *             @OA\Property(property="email", type="string", format="email", example="user@test.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="user123")
      *         )
      *     ),
      *     @OA\Response(
@@ -136,7 +136,7 @@ class AuthController extends Controller
      */
     public function profile()
     {
-        $user = auth()->user();
+        $user = auth('api')->user();
         return ResponseHelper::success($user, 'Kullanıcı profili');
     }
 
@@ -166,7 +166,7 @@ class AuthController extends Controller
      */
     public function updateProfile(Request $request)
     {
-        $user = auth()->user();
+        $user = auth('api')->user();
 
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|required|string|min:2',
